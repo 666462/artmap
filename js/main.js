@@ -85,7 +85,9 @@ function submitSuccess(lat, long) {
 					// long
 					obj[2] = $(this).children('td').eq(2).html();
 					// disc
-					obj[3] = $(this).children('td').eq(4).html();		
+					obj[3] = $(this).children('td').eq(4).html();	
+					// image
+					obj[4] = $(this).children('td').eq(5).html();		
 				arr.push(obj);
 			});	
 			initialize();				
@@ -181,6 +183,8 @@ $(function(){
 					obj[2] = $(this).children('td').eq(2).html();
 					// disc
 					obj[3] = $(this).children('td').eq(4).html();		
+					// image
+					obj[4] = $(this).children('td').eq(5).html();	
 				arr.push(obj);
 			});	
 			initialize();
@@ -242,6 +246,34 @@ function setTypeIcon(type){
   }
 }
 
+function setTypeOverlay(type){
+  switch(type){
+	case "Grafitti":
+	  return "Grafitti";
+	  break;
+	case "grafitti":
+	  return "Grafitti";
+	  break;
+	case "Dancer":
+	  return "Dancer";
+	  break;
+	case "dancer":
+	  return "Dancer";
+	  break;
+	case "Musician":
+	  return "Musician";
+	  break;
+	case "singer":
+	  return "Musician";
+	  break;
+	case "instrumentalist":
+	  return "Musician";
+	  break;
+	default:
+	  return "Others";
+  }
+}
+
 function setMarkers(map, location, iconImageUrl) {
 	var artIcon = {
 		url: iconImageUrl,
@@ -296,8 +328,14 @@ function setMarkers(map, location, iconImageUrl) {
 	];
 	
 	map.setOptions({styles: styles});
-	
-	var contentString = '<div class="artistDetail"><table><tr><th>Art Type</th><td>'+location[0]+'</td></tr><tr><th>Comments</th><td>' + location[3] + '</td></tr></table></div>'
+	if(location[4] != ''){
+		var contentString = '<div class="artistDetail '+ setTypeOverlay(location[0]) +'"><table cellpadding="0" cellspacing="0" ><tr><th>Art Type</th><td>'+setTypeOverlay(location[0])+'</td></tr><tr><th>Comments</th><td>' 
+	+ location[3] + '&nbsp;</td></tr></table><img src="http://www.wentin.co/artmap/uploads/' + location[4] + '"></div>"'
+	} else {
+		var contentString = '<div class="artistDetail '+ setTypeOverlay(location[0]) +'"><table cellpadding="0" cellspacing="0"><tr><th>Art Type</th><td>'+setTypeOverlay(location[0])+'</td></tr><tr><th>Comments</th><td>' 
+	+ location[3] + '&nbsp;</td></tr></table></div>"'
+		
+	}
 			
 	google.maps.event.addListener(marker, 'click', function() {
 		//map.setZoom(marker.zIndex);
@@ -307,4 +345,5 @@ function setMarkers(map, location, iconImageUrl) {
       	infowindow = new google.maps.InfoWindow({content: contentString});
 		infowindow.open(map,marker);
 	});
+	
 }

@@ -65,8 +65,51 @@ function getPhoto(source) {
                                 destinationType: destinationType.FILE_URI,sourceType: source });
 }
 
+
 // 当有错误发生时触发此函数
 function onFail(mesage) {
     alert('Failed because: ' + message);
 }
+
+function getImage() {
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(uploadPhoto, function(message) {
+		alert('get picture failed');
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+		}
+    );
+}
+
+function uploadPhoto(imageURI) {
+    var options = new FileUploadOptions();
+    options.fileKey="mFile";
+    options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+    options.mimeType="image/jpeg";
+ 
+    var params = new Object();
+    params.value1 = "test";
+    params.value2 = "param";
+ 
+    options.params = params;
+    options.chunkedMode = false;
+ 
+    
+    var ft = new FileTransfer();
+    ft.upload(imageURI, "http://www.wentin.co/artmap/uploader.php", win, fail, options);
+}
+ 
+function win(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+    //alert(r.response);
+}
+ 
+function fail(error) {
+	alert("An error has occurred: Code = " = error.code);
+}
+
 

@@ -12,13 +12,14 @@
 	display: none;	
 }
 input, textarea {
-	border: solid 0px #fff;
+	border: dotted 0px #fff;
 	line-height: 13px;
 	font-family: Helvetica, sans-serif;	
 }
 body {
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
+	color: #414141;
 	margin: 0;
 	padding: 0;
 }
@@ -30,24 +31,80 @@ body {
 	height: 100%;
 	position: absolute;
 }
+.artistDetail {
+}
 .artistDetail table{
-	width: 280px;
+	width: 240px;
+	margin-bottom: 5px;
+}
+.artistDetail.dancer {
+	border-top: dotted 1px #ffc200;
+}
+.artistDetail.grafitti{
+	border-top: dotted 1px #beba11;
+}
+.artistDetail.others {
+	border-top: dotted 1px #00aced;
+}
+.artistDetail.musician{
+	border-top: dotted 1px #e64660;
 }
 .artistDetail table tr th {
 	font-family: "nixie", "Times New Roman", Times, serif;
-	background-color: #00aced;
-	color: #ffffff;
+	/*background-color: #00aced;
+	color: #ffffff;*/
+	color: #00aced;
+	border-bottom: dotted 1px #00aced;
+	border-right: dotted 1px #00aced;
 	font-weight: normal;
 	vertical-align: top;
+	text-align: left;
 	padding: 0 4px;
+	
 	width: 25%;
 }
+.artistDetail.dancer table tr th {
+	color: #ffc200;
+	border-bottom: dotted 1px #ffc200;
+	border-right: dotted 1px #ffc200;
+}
+.artistDetail.grafitti table tr th {
+	color: #beba11;
+	border-bottom: dotted 1px #beba11;
+	border-right: dotted 1px #beba11;
+}
+.artistDetail.others table tr th {
+	color: #00aced;
+	border-bottom: dotted 1px #00aced;
+	border-right: dotted 1px #00aced;
+}
+.artistDetail.musician table tr th {
+	color: #e64660;
+	border-bottom: dotted 1px #e64660;
+	border-right: dotted 1px #e64660;
+}
 .artistDetail table tr td {
-	background-color: #ffffff;
-	color: #414141;
+	/*background-color: #ffffff;
+	color: #414141;*/
+	border-bottom: dotted 1px #00aced;
 	vertical-align: top;
 	padding: 0 4px;
 	width: 75%;
+}
+.artistDetail.dancer table tr td {
+	border-bottom: dotted 1px #ffc200;
+}
+.artistDetail.grafitti table tr td {
+	border-bottom: dotted 1px #beba11;
+}
+.artistDetail.others table tr td {
+	border-bottom: dotted 1px #00aced;
+}
+.artistDetail.musician table tr td {
+	border-bottom: dotted 1px #e64660;
+}
+.artistDetail img {
+    width: 240px;
 }
 #data {
 	display: none;
