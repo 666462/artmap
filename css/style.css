@@ -1,0 +1,309 @@
+@font-face {
+    font-family: 'nixie';
+    src: url('../fonts/nixieone-regular-webfont.eot');
+    src: url('../fonts/nixieone-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/nixieone-regular-webfont.woff') format('woff'),
+         url('../fonts/nixieone-regular-webfont.ttf') format('truetype'),
+         url('../fonts/nixieone-regular-webfont.svg#nixie_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.gmnoprint {
+	display: none;	
+}
+input, textarea {
+	border: solid 0px #fff;
+	line-height: 13px;
+	font-family: Helvetica, sans-serif;	
+}
+body {
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+.clr {
+	clear: both;	
+}
+#map_canvas {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.artistDetail table{
+	width: 280px;
+}
+.artistDetail table tr th {
+	font-family: "nixie", "Times New Roman", Times, serif;
+	background-color: #00aced;
+	color: #ffffff;
+	font-weight: normal;
+	vertical-align: top;
+	padding: 0 4px;
+	width: 25%;
+}
+.artistDetail table tr td {
+	background-color: #ffffff;
+	color: #414141;
+	vertical-align: top;
+	padding: 0 4px;
+	width: 75%;
+}
+#data {
+	display: none;
+	z-index: 9999;
+	position: absolute;
+	width: 400px;
+	height: 600px;
+	background-color: #ffffff;
+	overflow: auto;
+}
+#data table td {
+}
+option.others {
+	background-color: #FC1984;		
+}
+option.grafitti {
+	background-color: #19BFFC;		
+}
+option.dancer {
+	background-color: #FFF200;		
+}
+option.singer {
+	background-color: #FF5434;		
+}
+option.instrumentalist {
+	background-color: #BED73D;	
+}
+/********************************/
+.pinBoard {
+	width: 280px;
+	position: absolute;
+	z-index: 2;
+	top: 20px; 
+	right: 20px;
+}
+.pinHead {
+	width: 120px;
+	height: 145px;	
+	position: absolute;
+	left: 80px;
+	z-index: 2;
+	cursor: pointer;
+}
+.pinHeadBg {
+	height: 145px;
+	width: 120px;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	z-index: 3;
+}
+.pinHeadBg img {
+	width: 120px;
+	height: 145px;
+	position: absolute;	
+}
+.pinBody {
+	height: 328px;
+	width: 100%;
+	background: url(../images/pinBody.png) no-repeat left top;
+	background-size:100%;
+	position: absolute;
+	top: 72px;
+	display: none;
+}
+.pinBody .pinBodyBg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -2;
+}
+.pinBody form {
+	display: none;	
+}
+.type.hover {
+	opacity: 1;		
+}
+.type.unhover {
+	opacity: 0.4;		
+}
+.type {
+	position: absolute;	
+	cursor: pointer;
+	width: 60px;
+	height: 20px;
+	padding: 45px 0 0 0;
+	text-align: center;
+	color: #414141;
+	left: 30px;
+	top: 35px;
+	opacity: 0;
+}
+.type.dancer {
+	background: url(../images/dancer.png) no-repeat center 5px;
+	background-size: 40px;
+	/*left: -60px;
+	top: 151px;*/
+}
+.type.musician{
+	background: url(../images/musician.png) no-repeat center 5px;
+	background-size: 40px;
+	/*left: 0px;
+	top: 151px;*/
+}
+.type.grafitti {
+	background: url(../images/grafitti.png) no-repeat center 5px;
+	background-size: 40px;
+	/*left: 60px;
+	top: 151px;*/
+}
+.type.others{
+	background: url(../images/others.png) no-repeat center 5px;
+	background-size: 40px;
+	/*left: 120px;
+	top: 151px;*/
+}
+.type.musician:hover, .type.musician.selected{
+	background: url(../images/musicianHover.png) no-repeat center center;
+	background-size: contain;
+	color: #ffffff;
+}
+.type.grafitti:hover, .type.grafitti.selected{
+	background: url(../images/grafittiHover.png) no-repeat center center;
+	background-size: contain;
+	color: #ffffff;
+}
+.type.dancer:hover, .type.dancer.selected{
+	background: url(../images/dancerHover.png) no-repeat center center;
+	background-size: contain;
+	color: #ffffff;
+}
+.type.others:hover, .type.others.selected{
+	background: url(../images/othersHover.png) no-repeat center center;
+	background-size: contain;
+	color: #ffffff;
+}
+.type.unselected {
+	opacity: 0.4;
+}
+.artType .others input {
+	display: inline-block;	
+	margin-top: 4px;
+	width: 100px;
+}
+.artTypeWrapper {
+	width: 240px;
+	height: 75px;
+	margin: 74px auto 0 auto;	
+	position: relative;
+}
+.artTypeWrapper img {
+	width: 240px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.artTypeWrapper div {
+	width: 60px;
+	display: inline-block;
+	text-align: center;
+	font-size: 12px;
+	overflow: hidden;	
+	margin-top: 50px;
+	z-index: 1;
+}
+.discWrapper {
+	background: url(../images/disc.png) no-repeat left top;
+	background-size: 100%;
+	width: 230px;
+	height: 90px;
+	padding: 10px 5px 0px 5px;
+	margin: 0 auto;
+}
+.discWrapper textarea {
+	height: 80px;
+	width: 230px;
+}
+.btnWrapper {
+	width: 240px;
+	height: 60px;
+	margin: 5px auto 0 auto;
+}
+.cameraBtn, .albumBtn {
+	float: left;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	cursor: pointer;
+}
+.cameraBtn {
+	background: url(../images/cameraBtn.png) no-repeat left top;
+	background-size: 100%;	
+	text-indent: 50px;
+}
+.albumBtn {
+	background: url(../images/albumBtn.png) no-repeat left top;
+	background-size: 100%;	
+	text-indent: 60px;
+}
+.cameraBtn:hover {
+	background: url(../images/cameraBtnHover.png) no-repeat left top;
+	background-size: 100%;	
+	color: #ffffff;
+}
+.albumBtn:hover {
+	background: url(../images/albumBtnHover.png) no-repeat left top;
+	background-size: 100%;	
+	color: #ffffff;
+}
+.actionWrapper {
+	width: 100px;
+	margin: 0 auto;	
+}
+.pinBtn, .hideBtn {
+	width: 40px;
+	height: 49px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+.pinBtn {
+	line-height: 40px;
+	background: url(../images/pinBtn.png) no-repeat left top;
+	background-size: contain;		
+	color: #ffffff;
+}
+.hideBtn {
+	line-height: 62px;
+	background: url(../images/hideBtn.png) no-repeat left top;	
+	background-size: contain;		
+	color: #00aced;
+	margin-left: 20px;
+	margin-top: -11px
+}
+#success, #fail, #geoError {
+	position: absolute;
+	width: 220px;
+	color: #ffffff;
+	line-height: 20px;
+	padding: 0 10px;
+	top: 165px;
+	right: 40px;
+	text-align: center;
+	z-index: 2;
+	display: none;
+}
+#success {	
+	background-color: #00aced;	
+}
+#fail, #geoError {	
+	background-color: #e64660;	
+}
+#geoError {
+	z-index: 2;	
+}

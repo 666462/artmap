@@ -1,0 +1,99 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ArtMap</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+	<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png" />
+	<!-- 320x460 for iPhone 3GS -->
+	<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and not (-webkit-min-device-pixel-ratio: 2)" href="images/startup-iphone.png" />
+	<!-- 640x920 for retina display -->
+	<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="images/startup-iphone4.png" />
+	<!-- iPad Portrait 768x1004 -->
+	<link rel="apple-touch-startup-image" media="(min-device-width: 768px) and (orientation: portrait)" href="images/startup_portrait.png" />
+	<!-- iPad Landscape 1024x748 -->
+	<link rel="apple-touch-startup-image" media="(min-device-width: 768px) and (orientation: landscape)" href="images/startup_landscape.png" />
+	<link rel="apple-touch-startup-image" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)" href="images/startup_landscape_retina.png"/>
+	<link rel="apple-touch-startup-image" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)"  href="images/startup_portrait_retina.png"/>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDTTbVPzJ84Wwj7oNK2SD9GG2C4hO4hrGo&sensor=false&amp;language=en"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/cordova-2.7.0.js"></script>
+	
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/camera.js"></script>
+</head>
+<body>
+    <div class="map_wrapper">
+        <div id="map_canvas"></div>
+    </div>
+    
+    <div class="artistDetail">    
+    	<table>
+        	<tr>
+            	<th>Art Type</th>
+                <td>Dancer</td>
+            </tr>
+        	<tr>
+            	<th>Comments</th>
+                <td>He is a awesome break dancer!</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="pinBoard">
+    	<div class="pinHead">
+        	<div class="pinHeadBg">
+       	    	<img src="images/pinHead.png"> 
+            </div>
+            <div class="type dancer" dir="dancer"><span>Dancer</span></div>
+            <div class="type musician" dir="musician"><span>Musician</span></div>
+            <div class="type grafitti" dir="grafitti"><span>Grafitti</span></div>
+            <div class="type others" dir="others"><span>Others</span></div>
+      	</div>
+        <div class="pinBody">
+            <div class="artTypeWrapper">
+            	<img src="images/artTypeWrapper.png">
+            </div>
+        	<div class="discWrapper">
+                 <textarea id="newDisc" placeholder="what do you think?"></textarea>    
+            </div>
+            <form id="create_pin" method="post">
+                <input id="lat" name="lat" type="text"/>
+                <input id="long" name="long" type="text"><br/>
+                <input id="type" name="type" type="text"/><br/>
+                <textarea id="disc" name="disc"></textarea>
+                <input id="submit" type="submit" value="add pin"/>
+            </form>   
+            <div class="btnWrapper">
+            	<div class="cameraBtn" onclick="capturePhotoEdit();">Camera</div>
+                <div class="albumBtn" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Album</div>
+				<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+				<img style="display:none;" id="largeImage" src="" />
+                <div class="clr"></div>
+            </div>
+            <div class="actionWrapper">
+            	<div class="pinBtn">Pin it!</div>
+                <div class="hideBtn">Hide</div>
+                <div class="clr"></div>     
+            </div>
+        </div>    
+    </div>
+    <div id="data">
+    </div>
+    <div id="success">
+    	Congratulation! You have successfully submitted an art pin!
+    </div>
+    <div id="fail">
+    	Sorry! The submission failed!
+    </div>
+    <div id="geoError">
+    	Sorry! Something is wrong with GPS!
+    </div>
+</body>
+</html>
