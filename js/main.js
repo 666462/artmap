@@ -330,10 +330,10 @@ function setMarkers(map, location, iconImageUrl) {
 	map.setOptions({styles: styles});
 	if(location[4] != ''){
 		var contentString = '<div class="artistDetail '+ setTypeOverlay(location[0]) +'"><table cellpadding="0" cellspacing="0" ><tr><th>Art Type</th><td>'+setTypeOverlay(location[0])+'</td></tr><tr><th>Comments</th><td>' 
-	+ location[3] + '&nbsp;</td></tr></table><img src="http://www.wentin.co/artmap/uploads/' + location[4] + '"></div>"'
+	+ location[3] + '&nbsp;</td></tr></table><img src="http://www.wentin.co/artmap/uploads/' + location[4] + '"></div>'
 	} else {
 		var contentString = '<div class="artistDetail '+ setTypeOverlay(location[0]) +'"><table cellpadding="0" cellspacing="0"><tr><th>Art Type</th><td>'+setTypeOverlay(location[0])+'</td></tr><tr><th>Comments</th><td>' 
-	+ location[3] + '&nbsp;</td></tr></table></div>"'
+	+ location[3] + '&nbsp;</td></tr></table></div>'
 		
 	}
 			
